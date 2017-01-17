@@ -1,0 +1,37 @@
+= Description
+
+This is a project structure to use Apache Jena 3.2 with Maven.
+
+= Usage
+
+Jut put your code on `src/main/java/com/anything/playground/App.java`.
+Then `mvn clean package` will generate the project, and `mvn exec:java
+-Dexec.mainClass=com.anything.playground.App -Dexec.args="arglist"` will run
+`com.anything.playground.App.main(String[] args)` passing `arglist` to `args`. 
+You can also use `run.sh arglist`.
+
+== Eclipse
+
+The files `.classpath` and `.project` for eclipse are included. If you change
+the dependencies on `pom.xml`, re-generate the eclipse files with `mvn
+eclipse:eclipse`. This should do the work necessary to open the project on
+Eclipse. Next go to Eclipse and go to *File -> Import -> General -> Existing
+Projects in Workspace -> Select root directory -> Done*.
+
+Or you can import the project directly from eclipse as follows:
+
+
+. Open Eclipse
+. Click File > Import
+. Type Maven in the search box under Select an import source:
+. Select Existing Maven Projects
+. Click Browse and select the folder that is the root of the Maven project (probably contains the pom.xml file)
+. Click OK
+. Under Projects: click the checkbox next to the pom.xml file
+. Click Finish
+
+= Requirements
+
+Maven 3.3.9 or higher
+
+
