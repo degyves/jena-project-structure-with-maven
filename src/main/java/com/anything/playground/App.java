@@ -1,3 +1,7 @@
+/**
+ * Here'll go the license
+ * */
+
 package com.anything.playground;
 
 import org.apache.jena.query.*;
@@ -10,6 +14,11 @@ import org.apache.jena.riot.*;
 import org.apache.jena.graph.*;
 import org.apache.jena.shared.*;
 
+/**
+ * Generates a TDB database on the default tmp path and populates it, 
+ * executes a query over the dataset restricting it for a named graph, 
+ * or executes a query over a named graph.
+ * */
 public class App {
     public static void main(String[] args) {
         String databaseDir = System.getProperty("java.io.tmpdir")
@@ -29,6 +38,7 @@ public class App {
         String command = args[0];
         System.out.println("Executing command: "+command);
         switch(command){
+            // Initialize and populate the database
             case "init":
                 Dataset dataset = null;
                 try{
@@ -49,6 +59,7 @@ public class App {
                     dataset.close();
                 }
                 break;
+            // Run a query over the dataset but restrict it to a named graph
             case "runquery1":
                 System.out.println("Run a query over a graph");
                 System.out.println("Database at: "+databaseDir);
@@ -66,6 +77,7 @@ public class App {
                         query, dataset );
                 qe.execSelect().forEachRemaining( r -> System.out.println(r));
                 break;
+            // Run a query over the dataset for all graphs
             case "runquery2":
                 System.out.println("Run a query over all graphs");
                 System.out.println("Database at: "+databaseDir);
